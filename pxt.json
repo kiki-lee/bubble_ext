@@ -1,0 +1,57 @@
+{
+    "name": "bubble_ext",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0",
+        "carnival": "github:microsoft/arcade-carnival#v0.0.7",
+        "arcade-state-transitions": "github:riknoll/arcade-state-transitions#v0.0.2",
+        "controller": "*",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts",
+        "bubble.ts",
+        "images.g.jres",
+        "images.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.49",
+        "tag": "v1.12.49",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/8b39eda27ca91b27b57fc1f30c6b3b33d3fc2029",
+        "target": "1.12.49",
+        "pxt": "8.5.60",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj",
+    "palette": [
+        "#000000",
+        "#FFFFFF",
+        "#DF012E",
+        "#F696F8",
+        "#708DFF",
+        "#FF9500",
+        "#5FDF5D",
+        "#94BD84",
+        "#3E76F9",
+        "#87F2FF",
+        "#FFF5FD",
+        "#A4839F",
+        "#5C406c",
+        "#E5CDC4",
+        "#E5F7FF",
+        "#000000"
+    ]
+}
