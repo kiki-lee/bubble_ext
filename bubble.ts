@@ -608,7 +608,7 @@ namespace bubble {
         ShotNumber += 1
         myBall = sprites.create(list[codingThisBall], SpriteKind.Ball)
         myBall.x = 80
-        myBall.bottom = 112
+        myBall.bottom = 102
         
         console.log("Lading Bubble: " + myBall.image.getPixel(4, 4))
     }
