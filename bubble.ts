@@ -25,7 +25,6 @@ namespace bubble {
     //% block="toss bubble"
     //% help=bubble/toss_bubble
     export function tossBubble() {
-        console.log("Preparing to toss: " + myBall.image.getPixel(4, 4))
         if (!(stateTransitions.stateIs("aiming"))) {
             return
         }
@@ -33,7 +32,6 @@ namespace bubble {
         spriteutils.setVelocityAtAngle(myBall, spriteutils.degreesToRadians(aimingAngle), 300)
         sprites.setDataNumber(myBall, "vx", myBall.vx)
         sprites.setDataNumber(myBall, "vy", myBall.vy)
-        console.log("Tossed: " + myBall.image.getPixel(4, 4))
     }
 
 
@@ -46,11 +44,9 @@ namespace bubble {
     }
     
     function checkForMatches(thisBall: Sprite) {
-        console.log("Checking for Matches")
         if (tiles.tileAtLocationEquals(myBall.tilemapLocation(), assets.tile`myTile0`)) {
             game.gameOver(false)
         }
-        console.log("Replacing ball with tile")
         sprites.destroy(thisBall)
         tiles.setTileAt(thisBall.tilemapLocation(), thisBall.image)
         tiles.setWallAt(thisBall.tilemapLocation(), true)
@@ -73,7 +69,6 @@ namespace bubble {
                     maybeAddToQueue(currentLocation.column + 0, currentLocation.row - 1)
                 }
             }
-            console.log("Found " + locationsToClear.length + " connections.")
             if (locationsToClear.length >= 3) {
                 pause(100)
                 for (let value of locationsToClear) {
@@ -114,7 +109,6 @@ namespace bubble {
                     }
                 }
             }
-            console.log("Score = " + info.score())
             totalBallsOut = tiles.getTilesByType(assets.tile`myTile1`).length + (tiles.getTilesByType(assets.tile`myTile2`).length + (tiles.getTilesByType(assets.tile`myTile3`).length + (tiles.getTilesByType(assets.tile`myTile4`).length + tiles.getTilesByType(assets.tile`myTile5`).length)))
             if (totalBallsOut <= 0) {
                 bonus = Math.round((120000 - game.runtime()) / 200)
@@ -590,27 +584,20 @@ namespace bubble {
     export function load_bubble() {
         pauseUntil(() => stateTransitions.stateIs("aiming"))
         if (totalBallsOut < 8) {
-            console.log("UNDER 8")
             for (let value4 of list) {
                 if (tiles.getTilesByType(value4).length == 0 && list.indexOf(value4) >= 0) {
-                    console.log("No remaining " + value4)
                     list.removeAt(list.indexOf(value4))
-                    console.log("Removed" + value4)
                 } else if (tiles.getTilesByType(value4).length > 0 && list.indexOf(value4) < 0) {
-                    console.log("There's a " + value4 + " left!")
                     list.push(value4)
-                    console.log("Added" + value4)
                 }
             }
         }
-        console.log("" + list.length + " colors left in List")
         codingThisBall = randint(0, list.length - 1)
         ShotNumber += 1
         myBall = sprites.create(list[codingThisBall], SpriteKind.Ball)
         myBall.x = 80
         myBall.bottom = 102
         
-        console.log("Lading Bubble: " + myBall.image.getPixel(4, 4))
     }
 
 
@@ -663,37 +650,29 @@ namespace bubble {
     export function stick_to_wall(sprite: Sprite, location: tiles.Location) {
         stateTransitions.changeState("checking")
         if (!(tiles.tileAtLocationEquals(location, assets.tile`myTile`))) {
-            console.log("It hit something other than a brick tile...")
             if (tiles.tileAtLocationEquals(location, assets.tile`bottom_row`)) {
-                console.log("It hit a ground tile.")
                 sprites.destroy(sprite)
                 info.changeScoreBy(-1)
             } else if (tiles.tileAtLocationIsWall(sprite.tilemapLocation().getNeighboringLocation(CollisionDirection.Bottom)) || tiles.tileAtLocationIsWall(sprite.tilemapLocation().getNeighboringLocation(CollisionDirection.Right)) || tiles.tileAtLocationIsWall(sprite.tilemapLocation().getNeighboringLocation(CollisionDirection.Top)) || tiles.tileAtLocationIsWall(sprite.tilemapLocation().getNeighboringLocation(CollisionDirection.Left))) {
-                console.log("It hit the edge of another ball.")
                 sprite.setVelocity(0, 0)
                 checkForMatches(sprite)
             } else {
-                console.log("I'm not sure what it hit.")
                 sprite.setVelocity(0, 0)
                 sprite.y += -8
                 checkForMatches(sprite)
             }
         } else {
             if (sprite.isHittingTile(CollisionDirection.Left)) {
-                console.log("It hit the left wall")
                 sprites.setDataNumber(myBall, "vx", Math.abs(sprites.readDataNumber(sprite, "vx")))
             }
             if (sprite.isHittingTile(CollisionDirection.Right)) {
-                console.log("It hit the right wall")
                 sprites.setDataNumber(myBall, "vx", 0 - Math.abs(sprites.readDataNumber(sprite, "vx")))
             }
             if (sprite.isHittingTile(CollisionDirection.Top)) {
-                console.log("It hit the top wall")
                 sprite.setVelocity(0, 0)
                 checkForMatches(sprite)
             }
             if (sprite.isHittingTile(CollisionDirection.Bottom)) {
-                console.log("It hit the bottom wall")
                 sprites.setDataNumber(myBall, "vy", 0 - Math.abs(sprites.readDataNumber(sprite, "vy")))
             }
         }
