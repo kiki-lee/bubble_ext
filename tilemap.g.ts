@@ -1,9 +1,9 @@
 // Auto-generated code. Do not edit.
 namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
-    export const transparency16 = image.ofBuffer(hex``);
+    export const transparency26 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const transparency8 = image.ofBuffer(hex``);
+    export const transparency28 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile1 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
@@ -40,7 +40,7 @@ namespace myTiles {
 2 . . . . . . . . . . . . . . . . . . 2 
 2 . . . . . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, [myTiles.transparency8,myTiles.tile1,myTiles.tile2], TileScale.Eight);
+`, [myTiles.transparency28,myTiles.tile1,myTiles.tile2], TileScale.Eight);
             case "level0":
             case "level5":return tiles.createTilemap(hex`14000f00010101010101010101010101010101010101010101000000000000000000000000000000000000010100000000000000000000000000000000000001010000000000000000000000000000000000000101000000000000000000000000000000000000010100000000000000000000000000000000000001010000000000000000000000000000000000000101000000000000000000000000000000000000010100000000000000000000000000000000000001010000000000000000000000000000000000000101000000000000000000000000000000000000010102020202020202020202020202020202020201010000000000000000000000000000000000000101000000000000000000000000000000000000010103030303030303030303030303030303030301`, img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -58,15 +58,15 @@ namespace myTiles {
 2 . . . . . . . . . . . . . . . . . . 2 
 2 . . . . . . . . . . . . . . . . . . 2 
 2 . . . . . . . . . . . . . . . . . . 2 
-`, [myTiles.transparency8,myTiles.tile1,myTiles.tile2,myTiles.tile9], TileScale.Eight);
+`, [myTiles.transparency28,myTiles.tile1,myTiles.tile2,myTiles.tile9], TileScale.Eight);
         }
         return null;
     })
 
     helpers._registerFactory("tile", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "transparency16":return transparency16;
-            case "transparency8":return transparency8;
+            case "transparency26":return transparency26;
+            case "transparency28":return transparency28;
             case "myTile":
             case "tile1":return tile1;
             case "myTile2":
