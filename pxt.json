@@ -17,8 +17,10 @@
         "README.md",
         "assets.json",
         "tilemap.g.jres",
-        "bubble.ts",
-        "images.g.jres"
+        "tilemap.g.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "bubble.ts"
     ],
     "testFiles": [
         "test.ts"
