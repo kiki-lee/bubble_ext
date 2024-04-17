@@ -5,6 +5,7 @@
     "dependencies": {
         "device": "*",
         "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.3.1",
         "arcade-state-transitions": "github:riknoll/arcade-state-transitions#v0.0.2",
         "controller": "*",
         "Timers": "github:microsoft/arcade-timers#v1.1.0",

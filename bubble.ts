@@ -1,3 +1,8 @@
+namespace SpriteKind {
+    //% isKind
+    export const Bubble = SpriteKind.create()
+}
+
 //% color=#32c4de icon="\uf192"
 namespace bubble {
 
@@ -594,7 +599,7 @@ namespace bubble {
         }
         codingThisBall = randint(0, list.length - 1)
         ShotNumber += 1
-        myBall = sprites.create(list[codingThisBall], SpriteKind.Ball)
+        myBall = sprites.create(list[codingThisBall], SpriteKind.Bubble)
         myBall.x = 80
         myBall.bottom = 102
         
