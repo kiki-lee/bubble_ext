@@ -47,7 +47,7 @@ namespace bubble {
             alreadyVisited.setPixel(column, row, 15)
         }
     }
-    
+
     function checkForMatches(thisBall: Sprite) {
         if (tiles.tileAtLocationEquals(myBall.tilemapLocation(), assets.tile`myTile0`)) {
             game.gameOver(false)
@@ -154,8 +154,8 @@ namespace bubble {
     }
 
 
-    
-    
+
+
     function clearLocation(column: number, row: number) {
         burstBubble = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -180,23 +180,23 @@ namespace bubble {
             animation.runImageAnimation(
                 burstBubble,
                 [img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . 3 3 3 . . . . . . . 
-            . . . . . 3 . . . 3 . . . . . . 
-            . . . . 3 . . . . . 3 . . . . . 
-            . . . . 3 . . . . . 3 . . . . . 
-            . . . . 3 . . . . . 3 . . . . . 
-            . . . . . 3 . . . 3 . . . . . . 
-            . . . . . . 3 3 3 . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, img`
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . 3 3 3 . . . . . . .
+                    . . . . . 3 . . . 3 . . . . . .
+                    . . . . 3 . . . . . 3 . . . . .
+                    . . . . 3 . . . . . 3 . . . . .
+                    . . . . 3 . . . . . 3 . . . . .
+                    . . . . . 3 . . . 3 . . . . . .
+                    . . . . . . 3 3 3 . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                    . . . . . . . . . . . . . . . .
+                `, img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -578,8 +578,6 @@ namespace bubble {
     })
 
 
-
-
     /**
     * Appear to load the bubble
     */
@@ -602,7 +600,7 @@ namespace bubble {
         myBall = sprites.create(list[codingThisBall], SpriteKind.Bubble)
         myBall.x = 80
         myBall.bottom = 102
-        
+
     }
 
 
@@ -634,15 +632,6 @@ namespace bubble {
     }
 
 
-
-
-
-
-
-
-
-
-
     /**
     * Decides where the bubble should stick
     * 
@@ -651,6 +640,7 @@ namespace bubble {
     //% block="stick $sprite to $location"
     //% sprite.shadow=variables_get
     //% sprite.defl=sprite
+    //% location.shadow=variables_get
     //% location.defl=location
     export function stick_to_wall(sprite: Sprite, location: tiles.Location) {
         stateTransitions.changeState("checking")
@@ -682,5 +672,5 @@ namespace bubble {
             }
         }
     }
-    
+
 }
