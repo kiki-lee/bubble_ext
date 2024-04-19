@@ -2,12 +2,14 @@ namespace SpriteKind {
     //% isKind
     export const Bubble = SpriteKind.create()
 }
+tiles.setCurrentTilemap(tilemap`level0`)
+
 
 //% color=#32c4de icon="\uf192"
 namespace bubble {
 
     let codingThisBall = 0
-    let list: Image[] = []
+    export let list: Image[] = []
     let burstBubble: Sprite = null
     let ShotNumber = 0
     let bonus = 0
@@ -572,7 +574,9 @@ namespace bubble {
     spriteutils.createRenderable(0, function (screen2) {
         if (stateTransitions.stateIs("aiming")) {
             for (let index = 0; index <= 4; index++) {
-                screen2.setPixel(myBall.x + (index + 1) * 8 * Math.cos(spriteutils.degreesToRadians(aimingAngle)), myBall.y + (index + 1) * 8 * Math.sin(spriteutils.degreesToRadians(aimingAngle)), 11)
+                if (myBall) {
+                    screen2.setPixel(myBall.x + (index + 1) * 8 * Math.cos(spriteutils.degreesToRadians(aimingAngle)), myBall.y + (index + 1) * 8 * Math.sin(spriteutils.degreesToRadians(aimingAngle)), 11)
+                }
             }
         }
     })
@@ -587,17 +591,17 @@ namespace bubble {
     export function load_bubble() {
         pauseUntil(() => stateTransitions.stateIs("aiming"))
         if (totalBallsOut < 8) {
-            for (let value4 of list) {
-                if (tiles.getTilesByType(value4).length == 0 && list.indexOf(value4) >= 0) {
-                    list.removeAt(list.indexOf(value4))
-                } else if (tiles.getTilesByType(value4).length > 0 && list.indexOf(value4) < 0) {
-                    list.push(value4)
+            for (let value4 of bubble.list) {
+                if (tiles.getTilesByType(value4).length == 0 && bubble.list.indexOf(value4) >= 0) {
+                    bubble.list.removeAt(bubble.list.indexOf(value4))
+                } else if (tiles.getTilesByType(value4).length > 0 && bubble.list.indexOf(value4) < 0) {
+                    bubble.list.push(value4)
                 }
             }
         }
-        codingThisBall = randint(0, list.length - 1)
+        codingThisBall = randint(0, bubble.list.length - 1)
         ShotNumber += 1
-        myBall = sprites.create(list[codingThisBall], SpriteKind.Bubble)
+        myBall = sprites.create(bubble.list[codingThisBall], SpriteKind.Bubble)
         myBall.x = 80
         myBall.bottom = 102
 
@@ -612,7 +616,7 @@ namespace bubble {
     //% help=bubble/create_board
     export function createBoard() {
         tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level0`))
-        list = [
+        bubble.list = [
             assets.tile`myTile1`,
             assets.tile`myTile2`,
             assets.tile`myTile3`,
@@ -622,8 +626,10 @@ namespace bubble {
         aimingAngle = -90
         for (let indexX2 = 0; indexX2 <= 17; indexX2++) {
             for (let indexY2 = 0; indexY2 <= 1; indexY2++) {
-                tiles.setTileAt(tiles.getTileLocation(indexX2 + 1, indexY2 + 1), list._pickRandom())
-                tiles.setWallAt(tiles.getTileLocation(indexX2 + 1, indexY2 + 1), true)
+                if (bubble.list.length > 0) {
+                    tiles.setWallAt(tiles.getTileLocation(indexX2 + 1, indexY2 + 1), true)
+                    tiles.setTileAt(tiles.getTileLocation(indexX2 + 1, indexY2 + 1), bubble.list._pickRandom())
+                }
             }
         }
         controller.configureRepeatEventDefaults(0, 30)
