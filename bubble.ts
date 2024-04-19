@@ -608,7 +608,7 @@ namespace bubble {
     * Set up the board grid
     */
     //% blockId=createBoard 
-    //% block="arrange board"
+    //% block="create board"
     //% help=bubble/create_board
     export function createBoard() {
         tiles.setCurrentTilemap(tileUtil.createSmallMap(tilemap`level0`))
