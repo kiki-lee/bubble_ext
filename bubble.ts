@@ -24,6 +24,13 @@ namespace bubble {
     let aimingAngle = 0
     let myBall: Sprite = null
 
+    export enum Choice {
+        //% block="left"
+        Left,
+        //% block="right"
+        Right
+    }
+
 
     /**
     * Appear to toss the bubble
@@ -132,24 +139,32 @@ namespace bubble {
 
 
     /**
-    * Appear to aim further left
+    * Appear to aim bubble right or left
     */
-    //% blockId=aimLeft 
-    //% block="change angle left"
-    //% help=bubble/aim_left
-    export function tilt_angle_left() {
+    //% blockId=aimBubble 
+    //% block="change angle $direction"
+    //% direction.defl=Choice.Right
+    //% help=bubble/aim_bubble
+    export function tilt_angle(direction:Choice) {
+        if (stateTransitions.stateIs("aiming")) {
+            if (direction === Choice.Right) {
+                aimingAngle = Math.constrain(aimingAngle + 1.5, -175, -5)
+            } else {
+                aimingAngle = Math.constrain(aimingAngle - 1.5, -175, -5)
+            }
+        }
+    }
+
+
+
+    function tilt_angle_left() {
         if (stateTransitions.stateIs("aiming")) {
             aimingAngle = Math.constrain(aimingAngle - 1.5, -175, -5)
         }
     }
 
-    /**
-    * Appear to aim further right
-    */
-    //% blockId=aimRight 
-    //% block="change angle right"
-    //% help=bubble/aim_right
-    export function tilt_angle_right() {
+
+    function tilt_angle_right() {
         if (stateTransitions.stateIs("aiming")) {
             aimingAngle = Math.constrain(aimingAngle + 1.5, -175, -5)
         }
