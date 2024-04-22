@@ -1,4 +1,4 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.51/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.12","target":"arcade","targetVersion":"1.12.51","repo":"kiki-lee/bubble_ext"}
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.51/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.1.0","target":"arcade","targetVersion":"1.12.51","repo":"kiki-lee/bubble_ext"}
 // total=1369119 new=6.50% cached=87.73% other=5.77%
 (function (ectx) {
 'use strict';
@@ -443,7 +443,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P123683(s) {
+function _main___P159284(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -914,7 +914,7 @@ switch (step) {
     s.callLocIdx = 76; s.pc = 46; return s.tmp_0;
   case 46:
     r0 = s.retval;
-    globals.Bubble___122832 = (r0);
+    globals.Bubble___157925 = (r0);
     s.tmp_0 = tiles_setCurrentTilemap__P89031_mk(s);
     s.tmp_1 = helpers_getTilemapByName__P89602_mk(s);
     s.tmp_1.arg0 = "level0";
@@ -925,11 +925,11 @@ switch (step) {
     s.callLocIdx = 78; s.pc = 47; return s.tmp_0;
   case 47:
     r0 = s.retval;
-    globals.aimingAngle___122864 = (0);
-    globals.myBall___122866 = (null);
+    globals.aimingAngle___157957 = (0);
+    globals.myBall___157959 = (null);
     s.tmp_0 = spriteutils_createRenderable__P90662_mk(s);
     s.tmp_0.arg0 = 0;
-    s.tmp_0.arg1 = bubble_inline__P123318;
+    s.tmp_0.arg1 = bubble_inline__P158435;
     s.callLocIdx = 84; s.pc = 49; return s.tmp_0;
   case 49:
     r0 = s.retval;
@@ -937,13 +937,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P123683.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/Timers/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P123683.continuations = [  ]
+_main___P159284.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/Timers/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P159284.continuations = [  ]
 
-function _main___P123683_mk(s) {
+function _main___P159284_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P123683, depth: s.depth + 1,
+        parent: s, fn: _main___P159284, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1733,7 +1733,7 @@ function myImages_inline__P94105_mk(s) {
 
 
 
-function bubble_inline__P123318(s) {
+function bubble_inline__P158435(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1743,7 +1743,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.index___123321 = undefined;
+    s.index___158438 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -1756,26 +1756,26 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
-    s.index___123321 = (0);
+    s.index___158438 = (0);
   case 1:
-    r0 = (s.index___123321 <= 4);
+    r0 = (s.index___158438 <= 4);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 4; continue; }
-    r0 = pxsim_numops_toBoolDecr(globals.myBall___122866);
+    r0 = pxsim_numops_toBoolDecr(globals.myBall___157959);
     if (!r0) { step = 2; continue; }
     s.tmp_1 = r0 = s.arg0;
     s.tmp_4 = Sprite_x__P88621_mk(s);
-    s.tmp_4.arg0 = globals.myBall___122866;
+    s.tmp_4.arg0 = globals.myBall___157959;
     s.callLocIdx = 80; s.pc = 8; return s.tmp_4;
   case 8:
     r0 = s.retval;
     s.tmp_3 = r0;
-    r0 = (s.index___123321 + 1);
+    r0 = (s.index___158438 + 1);
     s.tmp_7 = r0;
     r0 = (s.tmp_7 * 8);
     s.tmp_6 = r0;
-    r0 = (globals.aimingAngle___122864 * 3.141592653589793);
+    r0 = (globals.aimingAngle___157957 * 3.141592653589793);
     s.tmp_10 = r0;
     r0 = (s.tmp_10 / 180);
     s.tmp_9 = r0;
@@ -1786,16 +1786,16 @@ switch (step) {
     r0 = (s.tmp_3 + s.tmp_5);
     s.tmp_2 = r0;
     s.tmp_13 = Sprite_y__P88623_mk(s);
-    s.tmp_13.arg0 = globals.myBall___122866;
+    s.tmp_13.arg0 = globals.myBall___157959;
     s.callLocIdx = 82; s.pc = 9; return s.tmp_13;
   case 9:
     r0 = s.retval;
     s.tmp_12 = r0;
-    r0 = (s.index___123321 + 1);
+    r0 = (s.index___158438 + 1);
     s.tmp_16 = r0;
     r0 = (s.tmp_16 * 8);
     s.tmp_15 = r0;
-    r0 = (globals.aimingAngle___122864 * 3.141592653589793);
+    r0 = (globals.aimingAngle___157957 * 3.141592653589793);
     s.tmp_19 = r0;
     r0 = (s.tmp_19 / 180);
     s.tmp_18 = r0;
@@ -1808,8 +1808,8 @@ switch (step) {
     r0 = pxsim_ImageMethods.setPixel(s.tmp_1, s.tmp_2, s.tmp_11, 11);
   case 2:
   case 3:
-    r0 = (s.index___123321 + 1);
-    s.index___123321 = (r0);
+    r0 = (s.index___158438 + 1);
+    s.index___158438 = (r0);
     { step = 1; continue; }
   case 4:
   case 5:
@@ -1818,12 +1818,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-bubble_inline__P123318.info = {"start":23948,"length":408,"line":573,"column":36,"endLine":581,"endColumn":5,"fileName":"bubble.ts","functionName":"inline","argumentNames":["screen2"]}
+bubble_inline__P158435.info = {"start":24309,"length":408,"line":588,"column":36,"endLine":596,"endColumn":5,"fileName":"bubble.ts","functionName":"inline","argumentNames":["screen2"]}
 
-function bubble_inline__P123318_mk(s) {
+function bubble_inline__P158435_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: bubble_inline__P123318, depth: s.depth + 1,
+        parent: s, fn: bubble_inline__P158435, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1845,7 +1845,7 @@ function bubble_inline__P123318_mk(s) {
   tmp_17: undefined,
   tmp_18: undefined,
   tmp_19: undefined,
-  index___123321: undefined,
+  index___158438: undefined,
   arg0: undefined,
 } }
 
@@ -46108,7 +46108,7 @@ const sprites_BaseSpriteSayRenderer__C88526_VT = mkVTable({
   },
 });
 
-const breakpoints = setupDebugger(1, ["transparency8___117731","tile1___117686","tile9___117711","tile2___117721","tile4___117691","tile5___117696","tile6___117701","tile7___117706","tile3___117716","transparency16___117726","Bubble___122832","myBall___122866","aimingAngle___122864"])
+const breakpoints = setupDebugger(1, ["transparency8___117731","tile1___117686","tile9___117711","tile2___117721","tile4___117691","tile5___117696","tile6___117701","tile7___117706","tile3___117716","transparency16___117726","Bubble___157925","myBall___157959","aimingAngle___157957"])
 
-return _main___P123683
+return _main___P159284
 })
